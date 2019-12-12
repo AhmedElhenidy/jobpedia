@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "190710544470",
+    "firebase_url": "https://jobpedia-b48d8.firebaseio.com",
+    "project_id": "jobpedia-b48d8",
+    "storage_bucket": "jobpedia-b48d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190710544470:android:12c5546f308c3372dea3f7",
+        "android_client_info": {
+          "package_name": "jobpedia.stem.com.jobpedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190710544470-fpg76q0k4am82d2if3lmdl6ohuuc2dki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIeF2pxEdzM2YkgFdqy9OzYX8NglOlEz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190710544470-fpg76q0k4am82d2if3lmdl6ohuuc2dki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
