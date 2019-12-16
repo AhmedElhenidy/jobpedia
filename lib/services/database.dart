@@ -1,13 +1,14 @@
 import 'dart:collection';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:jobpedia/model/brew.dart';
+import 'package:jobpedia/model/notifications.dart';
 import 'package:jobpedia/model/user.dart';
 class DatabaseService{
   String uid;
+  static String myUID ;
   static String specialize='',gevern='' ;
   DatabaseService({this.uid,});
-  User localUser ;
+ User localUser;
   // collection refrence
   final CollectionReference medCrewCollection = Firestore.instance.collection('jobpediaUsers');
    Future updateUserData( {String name,
@@ -21,15 +22,13 @@ class DatabaseService{
        'specialize': specialize,
      });
    }
-  Future addNotification( {String name,String toId,int type,
+  Future addNotification( {String sender,String receiver ,String toId,int type,
     String phone,String govern,String date,String specialize}) async{
-     UserLocalStorage.getUser().then((user){
-       this.localUser=user;
-     });
      await medCrewCollection.document(toId).collection('notification').document(uid).setData({
-      'from':localUser.uid,
-      'to' :toId,
-      'name':name,
+      'senderId':localUser.uid,
+      'recieverID' :toId,
+      'senderName':localUser.name,
+      'recieverName':receiver,
       'phone': phone,
       'govern': govern,
       'date': date,
@@ -37,6 +36,7 @@ class DatabaseService{
        'type':type,
     });
   }
+
 
    //user list of snap shot
   List<User> _brewListFromSnapshot(QuerySnapshot snapshot){
@@ -59,4 +59,18 @@ class DatabaseService{
          .where('govern',isEqualTo: gevern)
          .snapshots().map(_brewListFromSnapshot);
    }
+
+
+   // notificaions
+  List<Notifications> _notificationListFromSnapshot(QuerySnapshot snapshot){
+    return snapshot.documents.map((doc){
+      print(doc.data);
+      return Notifications.fromJson(doc.data);
+
+    }).toList();
+  }
+  Stream<List<Notifications>> get notifications{
+    return medCrewCollection.document('lsIUkYvSnvYDFyJsMOypMGFu6FJ3').collection('notification').snapshots()
+        .map(_notificationListFromSnapshot);
+  }
 }

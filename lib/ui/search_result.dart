@@ -102,10 +102,11 @@ class _SearchItemsState extends State<SearchItems> {
                       color: Colors.blue,
                       onPressed: (){
                         db.addNotification(
+                          phone: users[position].phone,
+                          receiver: users[position].name,
                           type: 1,
                           toId: users[position].uid,
                           specialize: users[position].specialize,
-                          name:widget.localUser.name,
                           date: widget.date,
                           govern: users[position].govern
                         );

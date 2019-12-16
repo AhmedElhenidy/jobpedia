@@ -3,7 +3,7 @@ import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/services/database.dart';
 class AuthService{
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  User localUser = User();
+  static User localUser ;
   User _userFromFireBase(FirebaseUser user){
     return user != null ? User(uid: user.uid):null;
   }
@@ -46,6 +46,7 @@ class AuthService{
     try{
       AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
+      DatabaseService.myUID=user.uid;
       return _userFromFireBase(user);
     }catch(e){
       print(e.toString());

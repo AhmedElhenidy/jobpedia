@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobpedia/model/user.dart';
+import 'package:jobpedia/services/auth.dart';
+import 'package:jobpedia/services/database.dart';
 import 'package:jobpedia/ui/chat_page.dart';
 import 'package:jobpedia/ui/notification_page.dart';
 import 'package:jobpedia/ui/search_page.dart';
@@ -27,6 +30,9 @@ class _BottomNavigationClassState extends State<BottomNavigationClass>{
     super.initState();
     _globalKeyScafoldState = new GlobalKey<ScaffoldState>();
     _pageController = new PageController();
+    UserLocalStorage.getUser().then((user){
+      AuthService.localUser=user;
+    });
       }
   @override
   void dispose() {

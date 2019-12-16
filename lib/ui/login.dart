@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobpedia/services/auth.dart';
 import 'package:jobpedia/ui/personal_data.dart';
 class LogIn extends StatefulWidget {
   @override
@@ -100,6 +101,14 @@ class _LogInState extends State<LogIn> {
                   }
                 },
               ),
+             /* RaisedButton(
+                elevation: 10,
+                child: Text("تسجيل دخول"),
+                onPressed: (){
+                  AuthService().signInWithEmailAndPassword(user.text, password.text);
+
+                },
+              ),*/
             ],
           ),
         ),
