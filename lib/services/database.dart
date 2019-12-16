@@ -5,13 +5,14 @@ import 'package:jobpedia/model/brew.dart';
 import 'package:jobpedia/model/user.dart';
 class DatabaseService{
   String uid;
-  String specialize='',gevern='' ;
+  static String specialize='',gevern='' ;
   DatabaseService({this.uid,});
+  User localUser ;
   // collection refrence
-  final CollectionReference brewCollection = Firestore.instance.collection('jobpediaUsers');
+  final CollectionReference medCrewCollection = Firestore.instance.collection('jobpediaUsers');
    Future updateUserData( {String name,
      String phone,String govern,String note,String specialize}) async{
-     return await brewCollection.document(uid).setData({
+     return await medCrewCollection.document(uid).setData({
        'id':uid,
        'name' :name,
        'phone': phone,
@@ -20,30 +21,42 @@ class DatabaseService{
        'specialize': specialize,
      });
    }
-   //brew list of snap shot
-  /*List<Brew> _brewListFromSnapshot(QuerySnapshot snapshot){
-     return snapshot.documents.map((doc){
-       return Brew(
-         name: doc.data['name']??'',
-         strength: doc.data['strength']??0,
-         sugars: doc.data['sugar']??'0',
-       );
-     }).toList();
-  }*/
+  Future addNotification( {String name,String toId,int type,
+    String phone,String govern,String date,String specialize}) async{
+     UserLocalStorage.getUser().then((user){
+       this.localUser=user;
+     });
+     await medCrewCollection.document(toId).collection('notification').document(uid).setData({
+      'from':localUser.uid,
+      'to' :toId,
+      'name':name,
+      'phone': phone,
+      'govern': govern,
+      'date': date,
+      'specialize': specialize,
+       'type':type,
+    });
+  }
+
+   //user list of snap shot
   List<User> _brewListFromSnapshot(QuerySnapshot snapshot){
     print("from brew list  : : :: : : :");
-    print(snapshot.documents[0].data['name']);
-    print(this.specialize+  this.gevern);
+    print(snapshot.documents[0].data);
+    print(specialize+  gevern);
     return snapshot.documents.map((doc){
       return User(
         name: doc.data['name']??'',
+        phone: doc.data['phone']??'',
+        specialize: doc.data['specialize']??'',
+        govern: doc.data['govern']??'',
+        note: doc.data['note']??'',
+        uid: doc.data['id']??'',
       );
     }).toList();
   }
    Stream<List<User>> get users{
-     return brewCollection.where("specialize", isEqualTo: 'مهندس مدنى',)
-         .where('govern',isEqualTo: 'dk')
+     return medCrewCollection.where("specialize", isEqualTo: specialize,)
+         .where('govern',isEqualTo: gevern)
          .snapshots().map(_brewListFromSnapshot);
-     //snapshots().map(_brewListFromSnapshot);
    }
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/services/auth.dart';
 import 'package:jobpedia/statics/bottom_navigation.dart';
 class PersonalData extends StatefulWidget {
@@ -18,7 +19,6 @@ class _PersonalDataState extends State<PersonalData> {
   String accountname ="";
   String area ="اختر التخصص";
   File _image;
-
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
@@ -149,6 +149,7 @@ class _PersonalDataState extends State<PersonalData> {
                             ),
                             //message: const Text('Your options are '),
                             actions: <Widget>[
+                              //الهندسة
                               CupertinoActionSheetAction(
                                 child: const Text('الهندسة'),
                                 onPressed: () {
@@ -206,6 +207,7 @@ class _PersonalDataState extends State<PersonalData> {
                                   );
                                 },
                               ),
+                              //القانون
                               CupertinoActionSheetAction(
                                 child: const Text('القانون'),
                                 onPressed: () {
@@ -215,6 +217,7 @@ class _PersonalDataState extends State<PersonalData> {
                                   Navigator.pop(context, 'Two');
                                 },
                               ),
+                              // الصحافة والاعلام
                               CupertinoActionSheetAction(
                                 child: const Text('الصحافة والإعلام'),
                                 onPressed: () {
@@ -224,6 +227,7 @@ class _PersonalDataState extends State<PersonalData> {
                                   Navigator.pop(context, 'Two');
                                 },
                               ),
+                              // تخصصات خدمة
                               CupertinoActionSheetAction(
                                 child: const Text('تخصصات خدمية'),
                                 onPressed: () {
@@ -233,6 +237,7 @@ class _PersonalDataState extends State<PersonalData> {
                                   Navigator.pop(context, 'Two');
                                 },
                               ),
+                              //تخصصات حرفية
                               CupertinoActionSheetAction(
                                 child: const Text('تخصصات حرفية'),
                                 onPressed: () {
@@ -268,12 +273,13 @@ class _PersonalDataState extends State<PersonalData> {
                     if (_formKey.currentState.validate()&&area !="اختر التخصص") {
                       dynamic result  =await _auth.registerWithEmailAndPassword(
                           email: widget.mail,
-                      password: widget.password,
-                      name: name.text,
-                      phone: phone.text,
-                      govern: mohagza.text,
-                      note: note.text,
-                      specialize: area);
+                          password: widget.password,
+                          name: name.text,
+                          phone: phone.text,
+                          govern: mohagza.text,
+                          note: note.text,
+                          specialize: area
+                      );
                       print(result.toString());
                       print(result);
                       if(result!= null){

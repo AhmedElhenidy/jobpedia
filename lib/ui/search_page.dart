@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:jobpedia/services/auth.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
+import 'package:jobpedia/services/database.dart';
 import 'package:jobpedia/ui/search_result.dart';
 
 class SearchPage extends StatefulWidget {
@@ -13,13 +15,13 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   TextEditingController name = TextEditingController();
   AuthService _auth = AuthService();
-
+  String area ='';
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      color: Colors.green,
+      color: Color(0xfff0f0f0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -83,10 +85,10 @@ class _SearchBySpecializeState extends State<SearchBySpecialize> {
     'الإسكندرية','الإسماعيلية','أسوان', 'أسيوط','الأقصر','البحر الأحمر','البحيرة','بنى سويف','بورسعيد'
     ,'جنو سيناء','الجيزة','الدقهلية', 'دمياط', 'سوهاج', 'الشرقية', 'شمال سيناء', 'الغربية', 'الفيوم',
     'القاهرة', 'قنا', 'كفر الشيخ', 'مرسى مطروح', 'المنوفية', 'المنيا', 'الوادى الجديد',];
-   DateTime _currentDate ;
+   DateTime _currentDate =DateTime.now()  ;
    String government ='dk';
    String specialize ='مهندس مدنى';
-
+  String area ='';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -116,7 +118,56 @@ class _SearchBySpecializeState extends State<SearchBySpecialize> {
               children: <Widget>[
                 //الهندسة
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    showCupertinoModalPopup(
+                      context: context,
+                      builder: (BuildContext context) => CupertinoActionSheet(
+                          title: const Text('اختر التخصص',
+                            style: TextStyle(
+                              fontSize: 22,
+                              //color: FekraColors.blue,
+                              fontFamily: 'Semi',
+                            ),
+                          ),
+                          //message: const Text('Your options are '),
+                          actions: <Widget>[
+                            CupertinoActionSheetAction(
+                              child: const Text('مهندس كهرباء'),
+                              onPressed: () {
+                                setState(() {
+                                  area ="مهندس كهرباء";
+                                });
+                                Navigator.pop(context, 'One');
+                              },
+                            ),
+                            CupertinoActionSheetAction(
+                              child: const Text('مهندس مدنى'),
+                              onPressed: () {
+                                setState(() {
+                                  area ='مهندس مدنى';
+                                });
+                                Navigator.pop(context, 'Two');
+                              },
+                            ),
+                            CupertinoActionSheetAction(
+                              child: const Text('مهندس اتصالات'),
+                              onPressed: () {
+                                setState(() {
+                                  area ='مهندس اتصالات';
+                                });
+                                Navigator.pop(context, 'Two');
+                              },
+                            ),
+                          ],
+                          cancelButton: CupertinoActionSheetAction(
+                            child: const Text('إالغاء'),
+                            isDefaultAction: true,
+                            onPressed: () {
+                              Navigator.pop(context, 'Cancel');
+                            },
+                          )),
+                    );
+                  },
                   child: Container(
                     padding:
                         EdgeInsets.only(top: 8, bottom: 8, left: 16, right: 16),
@@ -295,7 +346,7 @@ class _SearchBySpecializeState extends State<SearchBySpecialize> {
                 locale: "ar",
                 onDayPressed: (DateTime date, List<Event> events) {
                   this.setState(() => _currentDate = date);
-                  print(date.toString());
+                  print(date.toString().substring(0,10));
                 },
                 weekendTextStyle: TextStyle(
                   color: Colors.red,
@@ -319,11 +370,13 @@ class _SearchBySpecializeState extends State<SearchBySpecialize> {
                   padding: const EdgeInsets.only(bottom: 16.0),
                   child: InkWell(
                     onTap: (){
+                      DatabaseService.gevern=govern[position];
+                      DatabaseService.specialize=area;
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
                           SearchResult(
-                            date:_currentDate.toString() ,
-                            gevern: government,
-                            specialize:specialize ,
+                            date:_currentDate.toString().substring(0,11) ,
+                            gevern: govern[position],
+                            specialize:area ,
                           )));
                     },
                     child: Container(

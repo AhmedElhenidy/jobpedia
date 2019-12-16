@@ -3,7 +3,7 @@ import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/services/database.dart';
 class AuthService{
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  User localUser = User();
   User _userFromFireBase(FirebaseUser user){
     return user != null ? User(uid: user.uid):null;
   }
@@ -26,6 +26,13 @@ class AuthService{
         phone: phone,
         name: name,
       );
+      localUser.uid =user.uid;
+      localUser.govern=govern;
+      localUser.name=name;
+      localUser.note=note;
+      localUser.phone=phone;
+      localUser.specialize=specialize;
+      UserLocalStorage.logIn(localUser);
       return _userFromFireBase(user);
     }catch(e){
       print(e.toString());
