@@ -32,6 +32,7 @@ class _BottomNavigationClassState extends State<BottomNavigationClass>{
     _pageController = new PageController();
     UserLocalStorage.getUser().then((user){
       AuthService.localUser=user;
+      DatabaseService.localUser=user;
     });
       }
   @override

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/statics/bottom_navigation.dart';

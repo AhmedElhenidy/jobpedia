@@ -12,9 +12,9 @@ class Notifications {
     factory Notifications.fromJson(Map<String, dynamic> json) {
         return Notifications(
             date: json['date'],
-            from: json['from'],
+            from: json['senderId'],
             govern: json['govern'],
-            name: json['name'],
+            name: json['senderName'],
             phone: json['phone'],
             specialize: json['specialize'],
             to: json['to'],
@@ -26,7 +26,7 @@ class Notifications {
         data['date'] = this.date;
         data['from'] = this.from;
         data['govern'] = this.govern;
-        data['name'] = this.name;
+        data['senderName'] = this.name;
         data['phone'] = this.phone;
         data['specialize'] = this.specialize;
         data['to'] = this.to;

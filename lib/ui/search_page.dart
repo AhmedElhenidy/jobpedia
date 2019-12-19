@@ -374,7 +374,7 @@ class _SearchBySpecializeState extends State<SearchBySpecialize> {
                       DatabaseService.specialize=area;
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
                           SearchResult(
-                            date:_currentDate.toString().substring(0,11) ,
+                            date:_currentDate.toString() ,
                             gevern: govern[position],
                             specialize:area ,
                           )));

@@ -1,6 +1,5 @@
-import 'dart:collection';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:jobpedia/model/chats.dart';
 import 'package:jobpedia/model/notifications.dart';
 import 'package:jobpedia/model/user.dart';
 class DatabaseService{
@@ -8,9 +7,11 @@ class DatabaseService{
   static String myUID ;
   static String specialize='',gevern='' ;
   DatabaseService({this.uid,});
- User localUser;
-  // collection refrence
+  static User localUser;
+  // collection reference
   final CollectionReference medCrewCollection = Firestore.instance.collection('jobpediaUsers');
+  final CollectionReference chatCollection = Firestore.instance.collection('jobpediaUsersChats');
+   // add user to fire base
    Future updateUserData( {String name,
      String phone,String govern,String note,String specialize}) async{
      return await medCrewCollection.document(uid).setData({
@@ -22,6 +23,7 @@ class DatabaseService{
        'specialize': specialize,
      });
    }
+   // add notifications
   Future addNotification( {String sender,String receiver ,String toId,int type,
     String phone,String govern,String date,String specialize}) async{
      await medCrewCollection.document(toId).collection('notification').document(uid).setData({
@@ -36,7 +38,18 @@ class DatabaseService{
        'type':type,
     });
   }
-
+  // add chats
+  Future makeChat( {String toId ,String message ,DateTime date,String receiverName}) async{
+     // make chat on other side
+    await chatCollection.add({
+      'senderId':localUser.uid,
+      'recieverID' :toId,
+      'senderName':localUser.name,
+      'recieverName':receiverName,
+      'messages':message,
+      'date': date.toIso8601String().toString().substring(0,10),
+    });
+  }
 
    //user list of snap shot
   List<User> _brewListFromSnapshot(QuerySnapshot snapshot){
@@ -61,16 +74,27 @@ class DatabaseService{
    }
 
 
-   // notificaions
+   // notifications
   List<Notifications> _notificationListFromSnapshot(QuerySnapshot snapshot){
     return snapshot.documents.map((doc){
       print(doc.data);
       return Notifications.fromJson(doc.data);
-
     }).toList();
   }
   Stream<List<Notifications>> get notifications{
-    return medCrewCollection.document('lsIUkYvSnvYDFyJsMOypMGFu6FJ3').collection('notification').snapshots()
+    return medCrewCollection.document(localUser.uid).collection('notification').snapshots()
         .map(_notificationListFromSnapshot);
+  }
+
+  // chats page lists
+  List<Chats> _chatListFromSnapshot(QuerySnapshot snapshot){
+    return snapshot.documents.map((doc){
+      print(doc.data);
+      return Chats.fromJson(doc.data);
+    }).toList();
+  }
+  Stream<List<Chats>> get chats{
+    return chatCollection.orderBy('date').snapshots()
+        .map(_chatListFromSnapshot);
   }
 }

@@ -126,7 +126,8 @@ class _NotificationsListState extends State<NotificationsList> {
       itemExtent: 180,
       itemCount: notifications.length,
       itemBuilder: (context,position){
-        print(notifications[position].to);
+        print("ma,ed: : : : : : :: ::  ${notifications[position].name}");
+        print("ma,ed: : : : : : :: ::  ${notifications[position]}");
         return notifications[position].type==1?Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8)
@@ -219,6 +220,13 @@ class _NotificationsListState extends State<NotificationsList> {
                         color: Colors.blue,
                         elevation: 10,
                         onPressed: (){
+                          DatabaseService().makeChat(
+                            toId: notifications[position].from,
+                            date: DateTime.now(),
+                            message: "",
+                            receiverName: notifications[position].name,
+                          );
+                          print("chat add added");
                         },
                         child: Text("نعـم"),
                       ),
