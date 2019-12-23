@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jobpedia/model/chats.dart';
+import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/services/database.dart';
+import 'package:jobpedia/ui/chat%20room.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 class ChatPage extends StatefulWidget {
@@ -12,6 +14,7 @@ class _ChatPageState extends State<ChatPage> {
   List<String> names=['Mohamed Ahmed','Gamal Omar','خيرية السيد','Samira Saeed','Ghada Morad','Asmaa Ahmed'];
   List<String> msg=['ازيك','أيوه انا ساكن هناك',' ممكن أفضى من خمسة..','Sorry, I`m busy','خلاص تمام'
     ,'هكلمك بكره'];
+  @override
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Chats>>.value(
@@ -90,6 +93,14 @@ class ChatsList extends StatefulWidget {
 }
 
 class _ChatsListState extends State<ChatsList> {
+  User localUser ;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    localUser=DatabaseService.localUser;
+
+  }
   @override
   Widget build(BuildContext context) {
     final chats = Provider.of<List<Chats>>(context);
@@ -104,15 +115,22 @@ class _ChatsListState extends State<ChatsList> {
           return Container(
             child: ListTile(
               onTap: (){
-                print(" I`m tapped ${chats[position]}");
+                print(" I`m tapped ${chats[position].chatId}");
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatRoom(chat: chats[position],)));
               },
              title:Row(
                children: <Widget>[
                  Expanded(
-                   child: Text("${chats[position].senderName.split(' ')[0]} ${chats[position].senderName.split(' ')[1]}",
+                   child: Text("${localUser.name==chats[position].senderName
+                       ?"${chats[position].receiverName.split(' ')[0]} ${chats[position].receiverName.split(' ')[1]}"
+                       :"${chats[position].senderName.split(' ')[0]} ${chats[position].senderName.split(' ')[1]}"}",
                     ),
                  ),
-                 Text("${chats[position].date.substring(0,10)}")
+                 Text("${chats[position].date.substring(0,10)}",
+                  style: TextStyle(
+                    color: Colors.grey
+                  ),
+                 )
                ],
              ),
              subtitle: Text("${chats[position].messages}",

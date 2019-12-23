@@ -41,14 +41,23 @@ class DatabaseService{
   // add chats
   Future makeChat( {String toId ,String message ,DateTime date,String receiverName}) async{
      // make chat on other side
-    await chatCollection.add({
+    var result =await chatCollection.add({
       'senderId':localUser.uid,
       'recieverID' :toId,
       'senderName':localUser.name,
       'recieverName':receiverName,
       'messages':message,
-      'date': date.toIso8601String().toString().substring(0,10),
+      'date': date.toString(),
     });
+    print("result id is  : : :  :  ${result.documentID}");
+  }
+  Future updateChat( {String docId ,String message ,String date}) async{
+    // make chat on other side
+    await chatCollection.document(docId).updateData({
+      'messages':message,
+      'date': date.toString(),
+    });
+
   }
 
    //user list of snap shot
@@ -89,8 +98,8 @@ class DatabaseService{
   // chats page lists
   List<Chats> _chatListFromSnapshot(QuerySnapshot snapshot){
     return snapshot.documents.map((doc){
-      print(doc.data);
-      return Chats.fromJson(doc.data);
+      print("from chat list snap shot : : : : : : ${doc.documentID}${ doc.data} ");
+      return Chats.fromJson(doc.data,doc.documentID);
     }).toList();
   }
   Stream<List<Chats>> get chats{

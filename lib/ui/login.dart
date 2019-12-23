@@ -101,14 +101,14 @@ class _LogInState extends State<LogIn> {
                   }
                 },
               ),
-             /* RaisedButton(
+              RaisedButton(
                 elevation: 10,
                 child: Text("تسجيل دخول"),
                 onPressed: (){
                   AuthService().signInWithEmailAndPassword(user.text, password.text);
 
                 },
-              ),*/
+              ),
             ],
           ),
         ),

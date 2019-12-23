@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/services/auth.dart';
-import 'package:jobpedia/ui/login.dart';
 import 'package:jobpedia/ui/wrapper.dart';
 import 'package:provider/provider.dart';
 

@@ -1,23 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:jobpedia/model/chats.dart';
+import 'package:jobpedia/model/user.dart';
+import 'package:jobpedia/services/database.dart';
 class ChatRoom  extends StatefulWidget {
   Chats chat;
   ChatRoom({this.chat});
   @override
   _ChatRoomState createState() => _ChatRoomState();
 }
-
 class _ChatRoomState extends State<ChatRoom > {
   TextEditingController messageController = TextEditingController();
   ScrollController scrollController = ScrollController();
   final Firestore _firestore = Firestore.instance;
   Future<void> callback() async {
+    print("from call back");
     if (messageController.text.length > 0) {
-      await _firestore.collection('messages').add({
+      DatabaseService().updateChat(
+        docId: widget.chat.chatId,
+        date: DateTime.now().toString(),
+        message: messageController.text,
+      );
+      await _firestore.collection('jobpediaUsersChats').document(widget.chat.chatId).collection('messages').add({
         'text': messageController.text,
-        'from': '',
-        'date': DateTime.now().toIso8601String().toString(),
+        'from': localUser.uid,
+        'date': DateTime.now().toString(),
       });
       messageController.clear();
       scrollController.animateTo(
@@ -27,11 +34,38 @@ class _ChatRoomState extends State<ChatRoom > {
       );
     }
   }
+  User localUser ;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    localUser=DatabaseService.localUser;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chat"),
+        automaticallyImplyLeading: false,
+       title: Container(
+         width: MediaQuery.of(context).size.width,
+         padding: EdgeInsets.only(left: 0),
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.end,
+           children: <Widget>[
+             Padding(
+               padding: const EdgeInsets.only(left:8.0),
+               child: Text("  ${localUser.name==widget.chat.senderName
+                   ?"  ${widget.chat.receiverName.split(' ')[0]} ${widget.chat.receiverName.split(' ')[1]}"
+                   :"  ${widget.chat.senderName.split(' ')[0]} ${widget.chat.senderName.split(' ')[1]}"}",
+                ),
+             ),
+             CircleAvatar(
+               backgroundColor: Colors.white,
+               child: Icon(Icons.person_outline),
+             ),
+           ],
+         ),
+       ),
       ),
       body: SafeArea(
         child: Column(
@@ -39,7 +73,8 @@ class _ChatRoomState extends State<ChatRoom > {
           children: <Widget>[
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: _firestore
+                stream:  _firestore.collection('jobpediaUsersChats')
+                    .document(widget.chat.chatId)
                     .collection('messages')
                     .orderBy('date')
                     .snapshots(),
@@ -48,18 +83,16 @@ class _ChatRoomState extends State<ChatRoom > {
                     return Center(
                       child: CircularProgressIndicator(),
                     );
-
                   List<DocumentSnapshot> docs = snapshot.data.documents;
-
                   List<Widget> messages = docs
                       .map((doc) => Message(
-                    from: doc.data['from'],
+                    date: doc.data['date'],
                     text: doc.data['text'],
-                   // me: widget.user.email == doc.data['from'],
+                    me: localUser.uid == doc.data['from'],
                   ))
                       .toList();
-
                   return ListView(
+                    padding: EdgeInsets.only(left: 16,right: 16),
                     controller: scrollController,
                     children: <Widget>[
                       ...messages,
@@ -69,6 +102,7 @@ class _ChatRoomState extends State<ChatRoom > {
               ),
             ),
             Container(
+              height: 53,
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -81,12 +115,15 @@ class _ChatRoomState extends State<ChatRoom > {
                       controller: messageController,
                     ),
                   ),
-                  FlatButton(
-                  color: Colors.orange,
-                  onPressed: (){
-
-                  },
-                  child: Text("send"),
+                  Container(
+                    child: FlatButton(
+                      color: Colors.orange,
+                      onPressed:  callback,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top:8.0,bottom: 16),
+                        child: Text("send"),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -98,13 +135,10 @@ class _ChatRoomState extends State<ChatRoom > {
   }
 }
 class Message extends StatelessWidget {
-  final String from;
+  final String date;
   final String text;
-
   final bool me;
-
-  const Message({Key key, this.from, this.text, this.me}) : super(key: key);
-
+  const Message({Key key, this.date, this.text, this.me}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -113,10 +147,10 @@ class Message extends StatelessWidget {
         me ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            from,
+            date.substring(0,16),
           ),
           Material(
-            color: me ? Colors.teal : Colors.red,
+            color: me ? Colors.greenAccent : Colors.blue,
             borderRadius: BorderRadius.circular(10.0),
             elevation: 6.0,
             child: Container(
@@ -125,6 +159,9 @@ class Message extends StatelessWidget {
                 text,
               ),
             ),
+          ),
+          SizedBox(
+            height: 16,
           )
         ],
       ),
