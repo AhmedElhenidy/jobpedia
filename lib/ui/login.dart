@@ -21,7 +21,7 @@ class _LogInState extends State<LogIn> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Log In"),
+        title: Text("التسجيل"),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -51,7 +51,7 @@ class _LogInState extends State<LogIn> {
                   controller: user,
                   decoration: InputDecoration(
                     icon: Icon(Icons.person),
-                    hintText: "اسم المستخدم",
+                    hintText: "البريد الإلكترونى",
                   ),
                   style: TextStyle(
                   ),

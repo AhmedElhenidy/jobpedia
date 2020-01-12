@@ -109,7 +109,7 @@ class _ChatRoomState extends State<ChatRoom > {
                     child: TextField(
                       onSubmitted: (value) => callback(),
                       decoration: InputDecoration(
-                        hintText: "Enter a Message...",
+                        hintText: "اكتب نص الرسالة",
                         border: const OutlineInputBorder(),
                       ),
                       controller: messageController,
@@ -117,11 +117,15 @@ class _ChatRoomState extends State<ChatRoom > {
                   ),
                   Container(
                     child: FlatButton(
-                      color: Colors.orange,
+                      color: Colors.blue,
                       onPressed:  callback,
                       child: Padding(
                         padding: const EdgeInsets.only(top:8.0,bottom: 16),
-                        child: Text("send"),
+                        child: Text("ارسال",
+                          style: TextStyle(
+                            color: Colors.white
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -155,8 +159,7 @@ class Message extends StatelessWidget {
             elevation: 6.0,
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-              child: Text(
-                text,
+              child: Text(text,
               ),
             ),
           ),

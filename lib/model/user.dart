@@ -1,13 +1,13 @@
 import 'package:shared_preferences/shared_preferences.dart';
-
 class User{
+  String locale ;
    String uid ;
   String name;
   String phone;
   String govern ;
   String note;
   String specialize;
-  User({this.name,this.note,this.phone,this.govern,this.specialize,this.uid});
+  User({this.name,this.locale,this.note,this.phone,this.govern,this.specialize,this.uid});
 }
 class UserLocalStorage {
   static Future<bool> logOut() async {
@@ -24,6 +24,7 @@ class UserLocalStorage {
       await prefs.setString("govern", user.govern);
       await prefs.setString("note", user.note);
       await prefs.setString("specialize", user.specialize);
+      await prefs.setString("locale", user.locale);
       print("user logged in seccess : :: : : : : : : :");
       return true ;
     }catch(Exception){
@@ -40,6 +41,7 @@ class UserLocalStorage {
       note: prefs.getString('note'),
       phone: prefs.getString('phone'),
       name: prefs.getString('name'),
+      locale: prefs.getString('locale'),
     );
   }
 }

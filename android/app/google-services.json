@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "190710544470",
-    "firebase_url": "https://jobpedia-b48d8.firebaseio.com",
-    "project_id": "jobpedia-b48d8",
-    "storage_bucket": "jobpedia-b48d8.appspot.com"
+    "project_number": "845777890080",
+    "firebase_url": "https://jopbedia2.firebaseio.com",
+    "project_id": "jopbedia2",
+    "storage_bucket": "jopbedia2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:190710544470:android:12c5546f308c3372dea3f7",
+        "mobilesdk_app_id": "1:845777890080:android:b31497122ec62899de8545",
         "android_client_info": {
           "package_name": "jobpedia.stem.com.jobpedia"
         }
       },
       "oauth_client": [
         {
-          "client_id": "190710544470-fpg76q0k4am82d2if3lmdl6ohuuc2dki.apps.googleusercontent.com",
+          "client_id": "845777890080-gdvrhlkquf3rmahrdj3g3duqd1u2hlou.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCIeF2pxEdzM2YkgFdqy9OzYX8NglOlEz8"
+          "current_key": "AIzaSyBM5xVCpBz2Zknrm-k8F0NEJ6c-6hs36kA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "190710544470-fpg76q0k4am82d2if3lmdl6ohuuc2dki.apps.googleusercontent.com",
+              "client_id": "845777890080-gdvrhlkquf3rmahrdj3g3duqd1u2hlou.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -18,7 +18,13 @@ class _PersonalDataState extends State<PersonalData> {
   String dropdownValue = 'One',error;
   String accountname ="";
   String area ="اختر التخصص";
+  String govern ="اختر المحافظة";
   File _image;
+  List<String> governs = [
+    'الإسكندرية','الإسماعيلية','أسوان', 'أسيوط','الأقصر','البحر الأحمر','البحيرة','بنى سويف','بورسعيد'
+    ,'جنو سيناء','الجيزة','الدقهلية', 'دمياط', 'سوهاج', 'الشرقية', 'شمال سيناء', 'الغربية', 'الفيوم',
+    'القاهرة', 'قنا', 'كفر الشيخ', 'مرسى مطروح', 'المنوفية', 'المنيا', 'الوادى الجديد',];
+
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
@@ -99,20 +105,269 @@ class _PersonalDataState extends State<PersonalData> {
                     },
                   ),
                 ),
+                // govern
                 Container(
                   width: MediaQuery.of(context).size.width/1.2,
-                  child: TextFormField(
-                    controller: mohagza,
-                    decoration:  InputDecoration(
-                      icon: Icon(Icons.location_on),
-                      hintText: "المحافظة",
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
                     ),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
+                    onPressed: (){
+                      showCupertinoModalPopup(
+                        context: context,
+                        builder: (BuildContext context) => CupertinoActionSheet(
+                            title: const Text('اختر المحافظة',
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontFamily: 'Semi',
+                              ),
+                            ),
+                            //message: const Text('Your options are '),
+                            actions:<Widget>[
+                                CupertinoActionSheetAction(
+                                child:  Text(governs[0]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[0];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[1]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[1];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[2]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[2];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[3]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[3];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[4]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[4];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[5]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[5];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[6]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[6];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[7]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[7];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[8]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[8];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[9]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[9];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[10]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[10];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[11]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[11];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[12]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[12];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[13]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[13];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[14]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[14];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[15]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[15];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[16]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[16];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[17]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[17];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[18]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[18];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[19]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[19];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[20]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[20];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[21]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[21];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[22]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[22];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[23]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[23];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                              CupertinoActionSheetAction(
+                                child:  Text(governs[24]),
+                                onPressed: () {
+                                  setState(() {
+                                    govern =governs[24];
+                                  });
+                                  Navigator.pop(context, 'Two');
+                                },
+                              ),
+                            ],
+
+                            cancelButton: CupertinoActionSheetAction(
+                              child: const Text('إالغاء'),
+                              isDefaultAction: true,
+                              onPressed: () {
+                                Navigator.pop(context, 'Cancel');
+                              },
+                            ),
+                        ),
+                      );
                     },
+                    color: Colors.transparent,
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.arrow_drop_down),
+                        Text(govern),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -276,7 +531,7 @@ class _PersonalDataState extends State<PersonalData> {
                           password: widget.password,
                           name: name.text,
                           phone: phone.text,
-                          govern: mohagza.text,
+                          govern: govern,
                           note: note.text,
                           specialize: area
                       );

@@ -1,0 +1,373 @@
+{
+  "@@last_modified": "2019-08-29T12:05:18.264044",
+  "locale": "en",
+  "@locale": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sar": "SAR",
+  "@sar": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerHome": "Home",
+  "@drawerHome": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerProfile": "Profile",
+  "@drawerProfile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerStores": "Stores",
+  "@drawerStores": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerOrders": "Orders",
+  "@drawerOrders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerLanguage": "Language",
+  "@drawerLanguage": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerLanguage1": "Language1",
+  "@drawerLanguage1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homeCategory": "Category",
+  "@homeCategory": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homeSeeAll": "seel all",
+  "@homeSeeAll": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homeOffers": "Offers",
+  "@homeOffers": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homePopular": "Popular",
+  "@homePopular": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homeHome": "Home",
+  "@homeHome": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homeLikes": "Likes",
+  "@homeLikes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileTitle": "My profile",
+  "@profileTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileWallet": "Wallet",
+  "@profileWallet": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileInfo": "Info",
+  "@profileInfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileChangePassword": "Change password",
+  "@profileChangePassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileEdit": "edit",
+  "@profileEdit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileStatistics": "Statistics",
+  "@profileStatistics": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileConsumed": "Consumed",
+  "@profileConsumed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileProducts": "Products",
+  "@profileProducts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profilePredicted": "Predicted",
+  "@profilePredicted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileFamily": "Family",
+  "@profileFamily": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileAddSomeone": "Add someone from my family",
+  "@profileAddSomeone": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileAdd": "Add",
+  "@profileAdd": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "storesPageTitle": "Stores",
+  "@storesPageTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "myOrderPageTitle": "My orders",
+  "@myOrderPageTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "productDetailsTitle": "Details",
+  "@productDetailsTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "productDetailsAddToCart": "add to cart",
+  "@productDetailsAddToCart": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shoppingCartPrices": "prices",
+  "@shoppingCartPrices": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shoppingCartBuyNow": "Buy now",
+  "@shoppingCartBuyNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderTitle": "Confirm order",
+  "@confirmOrderTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderPaymentMethod": "Payment method",
+  "@confirmOrderPaymentMethod": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderPaymentBy": "Payment by: ",
+  "@confirmOrderPaymentBy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderVisa": "Visa",
+  "@confirmOrderVisa": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderWallet": "Wallet",
+  "@confirmOrderWallet": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderCash": "Cash ON delivery",
+  "@confirmOrderCash": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderShippingInfo": "Shipping info",
+  "@confirmOrderShippingInfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderLocationOnMap": "Location on map",
+  "@confirmOrderLocationOnMap": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderInfo": "Info",
+  "@confirmOrderInfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderShippingPrice": "Shipping price",
+  "@confirmOrderShippingPrice": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderChooseShippingTime": "Choose shipping time",
+  "@confirmOrderChooseShippingTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderNormal30m": "Normal 30 m",
+  "@confirmOrderNormal30m": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderNow": "Now!",
+  "@confirmOrderNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderSpecificTime": "Specific time",
+  "@confirmOrderSpecificTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderTotalPrice": "Total Price",
+  "@confirmOrderTotalPrice": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderPromoCode": "Promo code",
+  "@confirmOrderPromoCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmOrderConfirm": "Confirm",
+  "@confirmOrderConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsTitle": "Order details",
+  "@orderDetailsTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsOrderNumber": "Order number",
+  "@orderDetailsOrderNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsYourOrderNumberIS": "Your order number is:",
+  "@orderDetailsYourOrderNumberIS": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsProducts": "Products:",
+  "@orderDetailsProducts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsNameOfProducts": "Name of product:",
+  "@orderDetailsNameOfProducts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsQuantity": "Quantity:",
+  "@orderDetailsQuantity": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsPrice": "Price:",
+  "@orderDetailsPrice": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsTotal": "Total:",
+  "@orderDetailsTotal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsInfo": "Info:",
+  "@orderDetailsInfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsName": "Name:",
+  "@orderDetailsName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsAddress": "Address:",
+  "@orderDetailsAddress": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsAge": "Age:",
+  "@orderDetailsAge": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsPhoneNumber": "Phone number:",
+  "@orderDetailsPhoneNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsShippingPrice": "Shipping price:",
+  "@orderDetailsShippingPrice": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "orderDetailsShippingTime": "Shipping time:",
+  "@orderDetailsShippingTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "changePasswordChange": "change",
+  "@changePasswordChange": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "changePasswordCancel": "Cancel",
+  "@changePasswordCancel": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "changePasswordOldPassword": "Old password",
+  "@changePasswordOldPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "changePasswordNewPassword": "New password",
+  "@changePasswordNewPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "changePasswordConfirmNewPassword": "Confirm new password",
+  "@changePasswordConfirmNewPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addFamilyAddFamilyMember": "Add family member",
+  "@addFamilyAddFamilyMember": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addFamilyRenewType": "renew type",
+  "@addFamilyRenewType": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addFamilyYearly": "Yearly",
+  "@addFamilyYearly": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addFamilyMonthly": "Monthly",
+  "@addFamilyMonthly": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addFamilyWeekly": "Weekly",
+  "@addFamilyWeekly": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

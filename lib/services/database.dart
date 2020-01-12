@@ -9,35 +9,8 @@ class DatabaseService{
   DatabaseService({this.uid,});
   static User localUser;
   // collection reference
-  final CollectionReference medCrewCollection = Firestore.instance.collection('jobpediaUsers');
+  final CollectionReference jobpediaCollection = Firestore.instance.collection('jobpediaUsers');
   final CollectionReference chatCollection = Firestore.instance.collection('jobpediaUsersChats');
-   // add user to fire base
-   Future updateUserData( {String name,
-     String phone,String govern,String note,String specialize}) async{
-     return await medCrewCollection.document(uid).setData({
-       'id':uid,
-       'name' :name,
-       'phone': phone,
-       'govern': govern,
-       'note': note,
-       'specialize': specialize,
-     });
-   }
-   // add notifications
-  Future addNotification( {String sender,String receiver ,String toId,int type,
-    String phone,String govern,String date,String specialize}) async{
-     await medCrewCollection.document(toId).collection('notification').document(uid).setData({
-      'senderId':localUser.uid,
-      'recieverID' :toId,
-      'senderName':localUser.name,
-      'recieverName':receiver,
-      'phone': phone,
-      'govern': govern,
-      'date': date,
-      'specialize': specialize,
-       'type':type,
-    });
-  }
   // add chats
   Future makeChat( {String toId ,String message ,DateTime date,String receiverName}) async{
      // make chat on other side
@@ -59,7 +32,33 @@ class DatabaseService{
     });
 
   }
-
+  // add user to fire base
+  Future updateUserData( {String name,
+    String phone,String govern,String note,String specialize}) async{
+    return await jobpediaCollection.document(uid).setData({
+      'id':uid,
+      'name' :name,
+      'phone': phone,
+      'govern': govern,
+      'note': note,
+      'specialize': specialize,
+    });
+  }
+  // add notifications
+  Future addNotification( {String sender,String receiver ,String toId,int type,
+    String phone,String govern,String date,String specialize}) async{
+    await jobpediaCollection.document(toId).collection('notification').document(uid).setData({
+      'senderId':localUser.uid,
+      'recieverID' :toId,
+      'senderName':localUser.name,
+      'recieverName':receiver,
+      'phone': phone,
+      'govern': govern,
+      'date': date,
+      'specialize': specialize,
+      'type':type,
+    });
+  }
    //user list of snap shot
   List<User> _brewListFromSnapshot(QuerySnapshot snapshot){
     print("from brew list  : : :: : : :");
@@ -77,7 +76,7 @@ class DatabaseService{
     }).toList();
   }
    Stream<List<User>> get users{
-     return medCrewCollection.where("specialize", isEqualTo: specialize,)
+     return jobpediaCollection.where("specialize", isEqualTo: specialize,)
          .where('govern',isEqualTo: gevern)
          .snapshots().map(_brewListFromSnapshot);
    }
@@ -91,7 +90,7 @@ class DatabaseService{
     }).toList();
   }
   Stream<List<Notifications>> get notifications{
-    return medCrewCollection.document(localUser.uid).collection('notification').snapshots()
+    return jobpediaCollection.document(localUser.uid).collection('notification').snapshots()
         .map(_notificationListFromSnapshot);
   }
 

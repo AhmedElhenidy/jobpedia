@@ -1,0 +1,318 @@
+{
+  "@@last_modified": "2019-08-27T13:34:44.209756",
+  "locale": "ar",
+  "@locale": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sar": "ر.س",
+    "@sar": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "drawerHome": "الرئيسية",
+  "@drawerHome": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerProfile": "حسابى",
+  "@drawerProfile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerStores": "المتاجر",
+  "@drawerStores": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerOrders": "الطلبات",
+  "@drawerOrders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerLanguage": "الانجليزية",
+  "@drawerLanguage": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerLanguage1": "العربية",
+  "@drawerLanguage1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "homeCategory": "الأقسام",
+    "@homeCategory": {
+      "type": "text",
+      "placeholders": {}
+  },
+   "homeSeeAll": "رؤية الكل",
+   "@homeSeeAll": {
+         "type": "text",
+      "placeholders": {}
+    },
+    "homeOffers": "العروض",
+    "@homeOffers": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "homePopular": "الشائع",
+    "@homePopular": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "homeHome": "الرئيسية",
+    "@homeHome": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "homeLikes": "المفضلة",
+    "@homeLikes": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileTitle": "حسابى",
+    "@profileTitle": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileWallet": "المحفظة",
+    "@profileWallet": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileInfo": "معلومات",
+    "@profileInfo": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileChangePassword": "تغيير كلمة المرور",
+    "@profileChangePassword": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileEdit": "تحرير",
+    "@profileEdit": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileStatistics": "الإحصائيات",
+    "@profileStatistics": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileConsumed": "المستهلكة",
+    "@profileConsumed": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileProducts": "المنتجات",
+    "@profileProducts": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profilePredicted": "المتنبأ بها",
+    "@profilePredicted": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileFamily": "العائلة",
+    "@profileFamily": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "profileAddSomeone": "اضافة شخص من عائلتى",
+    "@profileAddSomeone": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "storesPageTitle": "المتاجر",
+    "@storesPageTitle": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "myOrderPageTitle": "طلباتى",
+    "@myOrderPageTitle": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "productDetailsTitle": "التفاصيل",
+    "@productDetailsTitle": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "productDetailsAddToCart": "اضافة الى السلة",
+    "@productDetailsAddToCart": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "shoppingCartPrices": "الأسعار",
+    "@shoppingCartPrices": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "shoppingCartBuyNow": "اشتر الآن",
+    "@shoppingCartBuyNow": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderTitle": "تأكيد الطلب",
+    "@confirmOrderTitle": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderPaymentMethod": "وسيلة الدفغ",
+    "@confirmOrderPaymentMethod": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderPaymentBy": "الدفع بواسطة:  ",
+    "@confirmOrderPaymentBy": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderVisa": "Visa",
+    "@confirmOrderVisa": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderWallet": "المحفظة",
+    "@confirmOrderWallet": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderCash": "الدفع عند الاستلام",
+    "@confirmOrderCash": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderShippingInfo": "معلومات التوصيل",
+    "@confirmOrderShippingInfo": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderLocationOnMap": "تحديد من الخرائط",
+    "@confirmOrderLocationOnMap": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderInfo": "معلومات",
+    "@confirmOrderInfo": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderShippingPrice": "سعر التوصيل",
+    "@confirmOrderShippingPrice": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderChooseShippingTime": "اختر وقت التوصيل",
+    "@confirmOrderChooseShippingTime": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderNormal30m": "عادى 30 دقيقة",
+    "@confirmOrderNormal30m": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderNow": "الآن!",
+    "@confirmOrderNow": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderSpecificTime": "وقت محدد",
+    "@confirmOrderSpecificTime": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderTotalPrice": "السعر الكلى",
+    "@confirmOrderTotalPrice": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderPromoCode": "برومو كود",
+    "@confirmOrderPromoCode": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "confirmOrderConfirm": "تأكيد",
+    "@confirmOrderConfirm": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsTitle": "تفاصيل الطلب",
+    "@orderDetailsTitle": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsOrderNumber": "رقم الطلب",
+    "@orderDetailsOrderNumber": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsYourOrderNumberIS": "الرقم الخاص بطلبك:  ",
+    "@orderDetailsYourOrderNumberIS": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsProducts": " المنتجات",
+    "@orderDetailsProducts": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsNameOfProducts": "اسم المنتج",
+    "@orderDetailsNameOfProducts": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsQuantity": "الكمية",
+    "@orderDetailsQuantity": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsPrice": "السعر",
+    "@orderDetailsPrice": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsTotal": "الإجمالى",
+    "@orderDetailsTotal": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsInfo": "معلومات",
+    "@orderDetailsInfo": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsName": "الاسم:  ",
+    "@orderDetailsName": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsAddress": "العنوان:  ",
+    "@orderDetailsAddress": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsAge": "العمر:  ",
+    "@orderDetailsAge": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsPhoneNumber": "رقم الجوال:  ",
+    "@orderDetailsPhoneNumber": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsShippingPrice": "سعر التوصيل: ",
+    "@orderDetailsShippingPrice": {
+      "type": "text",
+      "placeholders": {}
+    },
+    "orderDetailsShippingTime": "زمن التوصيل: ",
+    "@orderDetailsShippingTime": {
+      "type": "text",
+      "placeholders": {}
+    }
+  }

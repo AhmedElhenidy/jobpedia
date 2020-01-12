@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:jobpedia/main.dart';
 import 'package:jobpedia/model/user.dart';
 import 'package:jobpedia/services/auth.dart';
 import 'package:jobpedia/services/database.dart';
 import 'package:jobpedia/ui/chat_page.dart';
+import 'package:jobpedia/ui/favourite_page.dart';
+import 'package:jobpedia/ui/help.dart';
 import 'package:jobpedia/ui/notification_page.dart';
 import 'package:jobpedia/ui/search_page.dart';
+
+import '../localizations.dart';
 class BottomNavigationClass extends StatefulWidget{
   _BottomNavigationClassState createState()=> _BottomNavigationClassState();
 }
@@ -73,7 +78,108 @@ class _BottomNavigationClassState extends State<BottomNavigationClass>{
     );
     return Scaffold(
       backgroundColor: Color(0xFFF5F5F5),
-     // drawer: DrawerClass().showDrawer(context),
+      drawer: Drawer(
+        elevation: 10,
+        child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.all(16),
+          //color: Colors.red,
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                  child: Image.asset("images/logo.png")),
+              SizedBox(
+                height: 10,
+              ),
+              ListTile(
+                dense: true,
+                title: new Text(
+                  "المفضلة",
+                  style: new TextStyle(
+                    fontSize: 18,
+                    color: Colors.blue,
+                    fontFamily: 'bold65',
+                  ),
+                  textAlign: TextAlign.right,
+                ),
+                leading: Icon(Icons.favorite,color: Colors.blue,size: 35,),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context)=>FavouritePage()
+                  ),
+                  );
+                },
+              ),
+              ListTile(
+                dense: true,
+                title: new Text(
+                  "مساعدة",
+                  style: new TextStyle(
+                    fontSize: 18,
+                    color: Colors.blue,
+                  ),
+                  textAlign: TextAlign.right,
+                ),
+                leading: Icon(Icons.help,color: Colors.blue,size: 35,),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context)=>Help()
+                  ),
+                  );
+                },
+              ),
+              ListTile(
+                title: Row(
+                  children: <Widget>[
+                    InkWell(
+                      child: Text("English   ",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppLocalizations.of(context).locale=="en"?
+                          Color(0xffDEB1D0):Colors.grey
+                        ),
+                      ),
+                      onTap: (){
+
+                        MyAppState.notifier.sink.add("en");
+                        print("en tapped");
+                        Navigator.of(context).pop();
+
+                      },
+                    ),
+                    Container(
+                      width: 2,
+                      height: 16,
+                      color: Colors.grey,
+                    ),
+                    InkWell(
+                      onTap: (){
+                        MyAppState.notifier.sink.add("ar");
+                        print("ar tapped");
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("    عربى",
+                        style: TextStyle(
+                            fontFamily: "Poppins-Bold",
+                            color: AppLocalizations.of(context).locale=="ar"?Color(0xffDEB1D0)
+                                :Colors.grey,
+                            fontSize: 15,
+                            height: 1
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                leading: Icon(Icons.language,color: Colors.blue,size: 35,),
+              ),
+            ],
+          ),
+        ),
+      ),
       key: _globalKeyScafoldState,
       bottomNavigationBar: bottomNavigationBarWidget,
       appBar: AppBar(
@@ -95,4 +201,63 @@ class _BottomNavigationClassState extends State<BottomNavigationClass>{
           onPageChanged: onPageChanged),
     );
   }
+}
+class ChooseLanguage extends StatefulWidget{
+  _ChooseLanguageState createState()=>_ChooseLanguageState();
+}
+class _ChooseLanguageState extends State<ChooseLanguage>{
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Container(
+        width: 200,height: 300,
+        child: Center(
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child:Column(
+                children: <Widget>[
+                  Flexible(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: new ListTile(
+                      title: new Text("العربية",
+                        style: new TextStyle(
+                            fontSize: 15.0,
+                            color: Colors.grey[50],
+                            ),
+                      ),
+                      onTap: () {
+                        MyAppState.notifier.sink.add("ar");
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    fit: FlexFit.tight,
+                    child: new ListTile(
+                      title: new Text("English",
+                        style: new TextStyle(
+                            fontSize: 15.0,
+                            color: Colors.grey[50],
+                            ),
+                      ),
+                      onTap: () {
+                        MyAppState.notifier.sink.add("en");
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 }
